@@ -14,7 +14,7 @@ const ProfilePage = () => {
     <div>
       <div>Nama: {name}</div>
       <div>Email: {email}</div>
-      <div><img src={image} alt="picture" /></div>
+      <div><img src={image} alt="" /></div>
     </div>
   );
 }
