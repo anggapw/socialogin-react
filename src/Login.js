@@ -7,7 +7,8 @@ import { Form, Button } from 'react-bootstrap'
 import './Login.css'
 
 const Login = () => {
-  const [, setDataLoginGoogle] = useState();
+  const [dataLoginGoogle, setDataLoginGoogle] = useState();
+  const [dataLoginFacebook, setDataLoginFacebook] = useState();
   const [statusLogin, setStatusLogin] = useState(false);
 
   //Arrow function
@@ -17,11 +18,18 @@ const Login = () => {
     localStorage.setItem('email', response.profileObj.email);
     localStorage.setItem('image', response.profileObj.imageUrl);
     setStatusLogin(true);
+    console.log(dataLoginGoogle);
   }
+
 
   //Arrow function
   const responseFacebook = (response) => {
-    console.log(response);
+    setDataLoginFacebook(response.accessToken);
+    localStorage.setItem('name', response.name);
+    localStorage.setItem('email', response.email);
+    localStorage.setItem('image', response.picture.data.url);
+    setStatusLogin(true);
+    console.log(dataLoginFacebook);
   }
 
   const componentClicked = () => {
@@ -43,7 +51,7 @@ const Login = () => {
         <div>
           <FacebookLogin
             appId="914586299045474"
-            autoLoad={false}
+            autoLoad={true}
             fields="name,email,picture"
             onClick={componentClicked}
             callback={responseFacebook}
