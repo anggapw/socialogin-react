@@ -7,7 +7,7 @@ import { Form, Button } from 'react-bootstrap'
 import './Login.css'
 
 const Login = () => {
-  const [dataLoginGoogle, setDataLoginGoogle] = useState();
+  const [, setDataLoginGoogle] = useState();
   const [statusLogin, setStatusLogin] = useState(false);
 
   //Arrow function
