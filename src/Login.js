@@ -43,7 +43,7 @@ const Login = () => {
         <div>
           <FacebookLogin
             appId="914586299045474"
-            autoLoad={true}
+            autoLoad={false}
             fields="name,email,picture"
             onClick={componentClicked}
             callback={responseFacebook}
